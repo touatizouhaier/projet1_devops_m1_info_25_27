@@ -1,4 +1,11 @@
 pipeline {
+agent any
+parameters {
+string(name: 'NAME', description: 'Please tell me your name')
+choice(name: 'GENDER', choices: ['Male', 'Female'], description: 'Choose Gender')
+}
+stages {
+    
 stage('Clean Workspace') {
     steps {
         // Nettoie tout le workspace avant de faire le checkout
@@ -6,13 +13,8 @@ stage('Clean Workspace') {
     }
 }
 
-agent any
-parameters {
-string(name: 'NAME', description: 'Please tell me your name')
-choice(name: 'GENDER', choices: ['Male', 'Female'], description: 'Choose Gender')
-}
-stages {
-    stage('Printing name') {
+
+stage('Printing name') {
         steps {
             script {
                 def name = "${params.NAME}"
