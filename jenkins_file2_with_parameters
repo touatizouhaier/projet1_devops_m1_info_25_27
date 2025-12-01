@@ -6,14 +6,6 @@ choice(name: 'GENDER', choices: ['Male', 'Female'], description: 'Choose Gender'
 }
 stages {
     
-stage('Clean Workspace') {
-    steps {
-        // Nettoie tout le workspace avant de faire le checkout
-        cleanWs()
-    }
-}
-
-
 stage('Printing name') {
         steps {
             script {
