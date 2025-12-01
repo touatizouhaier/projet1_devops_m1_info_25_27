@@ -1,4 +1,11 @@
 pipeline {
+stage('Clean Workspace') {
+    steps {
+        // Nettoie tout le workspace avant de faire le checkout
+        cleanWs()
+    }
+}
+
 agent any
 parameters {
 string(name: 'NAME', description: 'Please tell me your name')
