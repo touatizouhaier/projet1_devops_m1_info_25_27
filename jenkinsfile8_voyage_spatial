@@ -1,0 +1,111 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/user/repo.git'  // Remplacez par votre repo
+            }
+        }
+
+        stage('Build') {
+            parallel {
+                stage('Check de la coque') {
+                    steps {
+                        echo "Checking de la coque"
+                        sleep 10
+                        echo "Intégrité de la coque à 100%"
+                    }
+                }
+
+                stage('Vérification du niveau de carburant') {
+                    steps {
+                        echo "Vérification du niveau de carburant"
+                        sleep 10
+                        echo "Réservoir rempli à 74%"
+                    }
+                }
+            }
+        }
+
+        stage('Test') {
+            parallel {
+                stage('Vérification électronique') {
+                    steps {
+                        echo "Vérification des systèmes électroniques"
+                        sleep 10
+                        echo "Intégrité du système électronique à 100%"
+                    }
+                }
+
+                stage('Vérification des équipements de navigation') {
+                    steps {
+                        echo "Vérification des équipements de navigation"
+                        sleep 10
+                        echo "Léger dysfonctionnement de la carte numérique"
+                    }
+                }
+
+                stage('Vérification de la vitesse') {
+                    steps {
+                        echo "Vérification de la vitesse"
+                        sleep 15
+                        echo "Test de vitesse ok."
+                    }
+                }
+
+                stage('Vérification de la trajectoire') {
+                    steps {
+                        echo "Vérification de la trajectoire"
+                        sleep 10
+                        echo "Trajectoire ok."
+                    }
+                }
+
+                stage('Vérification de l'altitude') {
+                    steps {
+                        echo "Vérification de l'altitude"
+                        sleep 10
+                        echo "Test altitude ok."
+                    }
+                }
+            }
+        }
+
+        stage('Deploy') {
+            parallel {
+                stage('Vérification des propulseurs') {
+                    steps {
+                        echo "Vérification de l'intégrité des propulseurs"
+                        sleep 10
+                        echo "Propulseurs intacts"
+                    }
+                }
+
+                stage('Vérification des équipements de secours') {
+                    steps {
+                        echo "Vérification de l'intégrité des équipements de secours"
+                        sleep 10
+                        echo "Équipements de secours ok"
+                    }
+                }
+
+                stage('Vérification des communications') {
+                    steps {
+                        echo "Vérification des équipements de communication"
+                        sleep 10
+                        echo "Test radio ok."
+                    }
+                }
+
+                stage('Vérification du train d'atterrissage') {
+                    steps {
+                        echo "Vérification du déploiement du train d'atterrissage"
+                        sleep 10
+                        echo "Train sorti."
+                    }
+                }
+            }
+        }
+    }
+}
