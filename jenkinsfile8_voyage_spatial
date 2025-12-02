@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo "git branch: 'main', url: 'https://github.com/touatizouhaier/projet1_devops_m1_info_25_27.git'  // Remplacez par votre repo"
+                // Récupération du code depuis ton repo GitHub
+                git branch: 'main', url: 'https://github.com/touatizouhaier/projet1_devops_m1_info_25_27.git'
             }
         }
 
@@ -62,7 +63,7 @@ pipeline {
                     }
                 }
 
-                stage('Vérification de l'altitude') {
+                stage("Vérification de l'altitude") {
                     steps {
                         echo "Vérification de l'altitude"
                         sleep 10
@@ -74,7 +75,7 @@ pipeline {
 
         stage('Deploy') {
             parallel {
-                stage('Vérification des propulseurs') {
+                stage("Vérification des propulseurs") {
                     steps {
                         echo "Vérification de l'intégrité des propulseurs"
                         sleep 10
@@ -82,7 +83,7 @@ pipeline {
                     }
                 }
 
-                stage('Vérification des équipements de secours') {
+                stage("Vérification des équipements de secours") {
                     steps {
                         echo "Vérification de l'intégrité des équipements de secours"
                         sleep 10
@@ -90,7 +91,7 @@ pipeline {
                     }
                 }
 
-                stage('Vérification des communications') {
+                stage("Vérification des communications") {
                     steps {
                         echo "Vérification des équipements de communication"
                         sleep 10
@@ -98,7 +99,7 @@ pipeline {
                     }
                 }
 
-                stage('Vérification du train d'atterrissage') {
+                stage("Vérification du train d'atterrissage") {
                     steps {
                         echo "Vérification du déploiement du train d'atterrissage"
                         sleep 10
