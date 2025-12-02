@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/user/repo.git'  // Remplacez par votre repo
+                git branch: 'main', url: 'https://github.com/touatizouhaier/projet1_devops_m1_info_25_27.git'  // Remplacez par votre repo
             }
         }
 
